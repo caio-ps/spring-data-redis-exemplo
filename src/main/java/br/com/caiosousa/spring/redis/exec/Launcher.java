@@ -49,6 +49,7 @@ public class Launcher {
 		/*
 		 * Expirar o objeto no cache em 10 segundos
 		 */
+		LOG.info("Definindo expiração de 10 segundos para o objeto no cache...");
 		redis.expire("meuObjeto", 10, TimeUnit.SECONDS);
 		
 		/*
@@ -67,6 +68,25 @@ public class Launcher {
 		objetoSalvoNoRedis = redis.opsForValue().get("meuObjeto");
 		LOG.info("Objeto recuperado do REDIS depois de expirar: " + objetoSalvoNoRedis);
 		
+		/*
+		 * Adicionar e recuperar objeto novamente
+		 */
+		objetoSalvoNoRedis = new ObjetoCache(123L, "Objeto no cache");
+		redis.opsForValue().set("meuObjeto", objetoSalvoNoRedis);
+		LOG.info("Objeto criado e adicionado ao REDIS: " + objetoSalvoNoRedis);
+		
+		objetoSalvoNoRedis = redis.opsForValue().get("meuObjeto");
+		LOG.info("Objeto recuperado do REDIS: " + objetoSalvoNoRedis);
+		
+		/*
+		 * Exclusão manual de objeto do cache
+		 */
+		LOG.info("Excluindo manualmente objeto do cache...");
+		redis.delete("meuObjeto");
+		
+		objetoSalvoNoRedis = redis.opsForValue().get("meuObjeto");
+		LOG.info("Objeto recuperado depois da exclusão manual do cache: " + objetoSalvoNoRedis);
+
 	}
 	
 }
