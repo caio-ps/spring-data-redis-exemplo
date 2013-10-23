@@ -10,7 +10,7 @@ Pré-requisitos:
   3. redis-server instalado e no ar na porta padrão (6379)
 
 Execuçao:
-  Executar a classe br.com.caiosousa.spring.redis.exec.Launcher
+  executar a classe br.com.caiosousa.spring.redis.exec.Launcher
   
   
 Instalação do redis-server (Ubuntu):
