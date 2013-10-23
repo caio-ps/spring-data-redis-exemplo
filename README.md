@@ -5,8 +5,8 @@ Projeto simples para exemplificar a utilização do módulo REDIS do projeto Spr
 O projeto segue o padrão MAVEN.
 
 Pré-requisitos:
-  1. Maven 3.x
-  2. Java 1.7.x
+  1. Java 1.7.x
+  2. Maven 3.x
   3. redis-server instalado e no ar na porta padrão (6379)
 
 Execuçao:
